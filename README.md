@@ -67,7 +67,8 @@ switch to minikube method
 
 1. ```minikube start```
 
-<img src="/Users/zhoujufeng/Library/Application Support/typora-user-images/image-20230301135102358.png" alt="image-20230301135102358" style="zoom:50%;" />
+<img width="696" alt="image-20230301135102358" src="https://user-images.githubusercontent.com/44468782/222240857-325ec6b2-f091-426b-87d8-81fc03dd4496.png">
+
 
 2. push docker image to DockerHub
 
@@ -84,18 +85,30 @@ switch to minikube method
 
 4. Run `kubectl get deployments` to view deployments
 
+<img width="430" alt="image-20230301135449636" src="https://user-images.githubusercontent.com/44468782/222240910-b61d675a-ab59-4c19-824f-46a93728db7b.png">
+
 
 5. Run `kubectl get pods` to see the status of pods
+
+<img width="560" alt="image-20230301135504592" src="https://user-images.githubusercontent.com/44468782/222240938-bd789b64-8a91-4e62-a8f3-cc4660c67ab8.png">
 
 
 6. Create service and expose it: `kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
 
+<img width="584" alt="image-20230301135539893" src="https://user-images.githubusercontent.com/44468782/222240963-4c7f678f-23f3-40e9-a69d-2f1ab44ca85d.png">
+
 
 7. View services:  `kubectl get services`
+
+<img width="583" alt="image-20230301135558701" src="https://user-images.githubusercontent.com/44468782/222240994-1db2542a-33b7-4e61-b434-1ac830d52cf1.png">
 
 
 8. check the service run where: `minikube service fast-api --url`
 
+<img width="345" alt="image-20230301135932651" src="https://user-images.githubusercontent.com/44468782/222241016-2804a26c-c9a4-4b1f-9a8c-475dcdb69ad3.png">
 
 9. visit the service , e.g., send a http request curl `http://127.0.0.1:56806/fruit`
+
+<img width="348" alt="image-20230301140022071" src="https://user-images.githubusercontent.com/44468782/222241053-11b1453c-bd7e-4861-bbe4-e35a19dece7e.png">
+
 
