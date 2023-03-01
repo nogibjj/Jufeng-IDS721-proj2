@@ -1,34 +1,19 @@
-# FROM alpine:latest
-# RUN apk update && apk add bash
+# start by pulling the python image
+FROM python:3.9-alpine
 
-# WORKDIR /app
-# COPY repeat.sh /app
+# copy the requirements file into the image
+COPY ./requirements.txt /app/requirements.txt
 
-# # Use an official Python runtime as a parent image
-# FROM python:3.9
-
-# # Set the working directory to /app
-# WORKDIR /app
-
-# # Copy the current directory contents into the container at /app
-# COPY . /app
-
-# # Install any needed packages specified in requirements.txt
-# # RUN pip install --no-cache-dir -r requirements.txt
-
-# # Run the script.py when the container launches
-# CMD ["python", "mylib/list_files.py"]
-
-
-FROM python:latest
-
+# switch working directory
 WORKDIR /app
 
-COPY requirements.txt .
-
+# install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
 
+# copy every content from the local file to the image
 COPY . /app
 
-CMD ["python", "mylib/list_files.py", "/app"]
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python3" ]
 
+CMD ["main.py" ]
