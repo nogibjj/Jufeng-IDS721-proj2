@@ -59,7 +59,43 @@ docker push hoodie361/list-files:latest
 we can see the service
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/44468782/220737800-d602ef8b-b43f-4f82-940b-6fc837ede62a.png">
 
-
-
-
 2. Successfully create the EKS cluster and the node group.
+
+
+## week3
+switch to minikube method
+
+1. ```minikube start```
+
+<img src="/Users/zhoujufeng/Library/Application Support/typora-user-images/image-20230301135102358.png" alt="image-20230301135102358" style="zoom:50%;" />
+
+2. push docker image to DockerHub
+
+   ```
+   docker tag fast-api hoodie361/fast-api:latest
+   docker push hoodie361/fast-api:latest
+   ```
+
+3. Create a deployment
+
+   ```
+   kubectl create deployment fast-api --image=registry.hub.docker.com/hoodie361/fast-api
+   ```
+
+4. Run `kubectl get deployments` to view deployments
+
+
+5. Run `kubectl get pods` to see the status of pods
+
+
+6. Create service and expose it: `kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
+
+
+7. View services:  `kubectl get services`
+
+
+8. check the service run where: `minikube service fast-api --url`
+
+
+9. visit the service , e.g., send a http request curl `http://127.0.0.1:56806/fruit`
+
